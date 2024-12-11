@@ -1,0 +1,75 @@
+﻿<Page x:Class="Исхакова_Глазки_save.AgentsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Исхакова_Глазки_save"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AgentsPage" FontFamily="Century Gothic">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" Width="300" FontSize="15" Margin="10"></TextBox>
+            <ComboBox Name="ComboSort" SelectionChanged="ComboSort_SelectionChanged" Width="200" FontSize="15" Margin="10">
+                <TextBlock>Сортировка</TextBlock>
+                <TextBlock>Наименование по возрастанию</TextBlock>
+                <TextBlock>Наименование по убыванию</TextBlock>
+                <TextBlock>Скидка по возрастанию</TextBlock>
+                <TextBlock>Скидка по убыванию</TextBlock>
+                <TextBlock>Приоритет по возрастанию</TextBlock>
+                <TextBlock>Скидка по убыванию</TextBlock>
+            </ComboBox>
+            <ComboBox Name="ComboType" SelectionChanged="ComboType_SelectionChanged"  Width="200" FontSize="15" Margin="10">
+                <TextBlock>Все типы</TextBlock>
+                <TextBlock>МФО</TextBlock>
+                <TextBlock>ООО</TextBlock>
+                <TextBlock>ЗАО</TextBlock>
+                <TextBlock>МКК</TextBlock>
+                <TextBlock>ОАО</TextBlock>
+                <TextBlock>ПАО</TextBlock>
+            </ComboBox>
+        </WrapPanel>
+
+        <ListView Name="AgentListView" Grid.Row="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+                            <TextBlock Text="{Binding AgentTypeText}" FontSize="20" TextWrapping="Wrap" />
+                            <TextBlock Text=" | " FontSize="20" />
+                            <TextBlock Text="{Binding Title}" FontSize="20" TextWrapping="Wrap" />
+                            <TextBlock Text="10%" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="30" Margin="10"></TextBlock>
+                        </StackPanel>
+                        <TextBlock Text="Продаж за год:" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
+                        <TextBlock Text="{Binding Phone}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="20"></TextBlock>
+                        
+
+                        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
+                            <TextBlock Text="{Binding Priority, StringFormat=Приоритетность: {0}}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
+                            <Button Name="EditBtn" Content="Редактировать" Margin="2"></Button>
+
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
