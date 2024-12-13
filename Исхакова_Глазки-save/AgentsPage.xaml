@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Исхакова_Глазки_save"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AgentsPage" FontFamily="Century Gothic" >
+      Title="AgentsPage" FontFamily="Century Gothic" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -36,6 +36,9 @@
                 <TextBlock>ПАО</TextBlock>
             </ComboBox>
         </WrapPanel>
+
+        <Button Name="AddBtn" Content="Добавить" Click="AddBtn_Click" HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" Grid.Row="1"></Button>
 
         <ListView Name="AgentListView" Grid.Row="2">
             <ListView.ItemTemplate>
@@ -75,9 +78,9 @@
                         <TextBlock Text="{Binding Phone}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="20"></TextBlock>
                         
 
-                        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal">
+                        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
                             <TextBlock Text="{Binding Priority, StringFormat=Приоритетность: {0}}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
-                            <Button Name="EditBtn" Content="Редактировать" Margin="2"></Button>
+                            <Button Name="EditBtn" Content="Редактировать" Margin="2" Click="EditBtn_Click"></Button>
 
                         </StackPanel>
                     </Grid>
