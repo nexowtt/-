@@ -12,7 +12,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        <Image HorizontalAlignment="Left"></Image>
+        <Image Source="/agents/Глазки-save.png" HorizontalAlignment="Left" ></Image>
         <TextBlock Grid.Row="0" Text="Глазки-save" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
         <Button Content="Назад" Name="BtnBack"  Width="175" Height="30" Margin="5" HorizontalAlignment="Right" Click="BtnBack_Click"  ></Button>
