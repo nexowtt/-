@@ -40,10 +40,10 @@
         <Button Name="AddBtn" Content="Добавить" Click="AddBtn_Click" HorizontalAlignment="Right"
                 VerticalAlignment="Bottom" Grid.Row="1"></Button>
 
-        <ListView Name="AgentListView" Grid.Row="2">
+        <ListView Name="AgentListView" Grid.Row="2" SelectionChanged="AgentListView_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid Background="{Binding FonStyle}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
@@ -72,9 +72,9 @@
                             <TextBlock Text="{Binding AgentTypeText}" FontSize="20" TextWrapping="Wrap" />
                             <TextBlock Text=" | " FontSize="20" />
                             <TextBlock Text="{Binding Title}" FontSize="20" TextWrapping="Wrap" />
-                            <TextBlock Text="10%" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="30" Margin="10"></TextBlock>
+                            <TextBlock Text="{Binding Discount, StringFormat=Скидка {0} %}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="30" Margin="10"></TextBlock>
                         </StackPanel>
-                        <TextBlock Text="Продаж за год:" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
+                        <TextBlock Text="{Binding Prod, StringFormat= Продажи: {0}}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20" ></TextBlock>
                         <TextBlock Text="{Binding Phone}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="20"></TextBlock>
                         
 
@@ -87,7 +87,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        <Button Content="Редактировать приоритетность" Name="editprior" Click="editprior_Click" Width="200" FontSize="20" Visibility="Hidden" Grid.Row="4"></Button>
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
             <TextBlock Name="TBCount" FontSize="20" Height="20"></TextBlock>
             <TextBlock Name="TBAllRecords" FontSize="20" Height="20"></TextBlock>

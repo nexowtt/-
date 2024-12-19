@@ -14,12 +14,12 @@
             <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
@@ -38,9 +38,9 @@
 
         </StackPanel>
 
-        <StackPanel Grid.Column="0" Grid.Row="3" Orientation="Vertical" Grid.RowSpan="4">
+        <StackPanel Grid.Column="0" Grid.Row="3" Orientation="Vertical" Grid.RowSpan="3">
             <TextBlock Text="Логотип"  FontSize="15" Height="20" Width="auto" Margin="5"></TextBlock>
-            <Image Name="LogoImage" MouseDown="LogoImage_MouseDown" Stretch="UniformToFill" MinHeight="50" Height="100" Width="100" HorizontalAlignment="Center" Margin="5">
+            <Image Name="LogoImage" Stretch="UniformToFill" MinHeight="50" Height="100" Width="100" HorizontalAlignment="Center" Margin="5">
                 <Image.Source>
                     <Binding Path="Logo" TargetNullValue="agents/picture.png" ></Binding>
                 </Image.Source>
@@ -82,10 +82,22 @@
             <TextBox Text="{Binding Email}"  FontSize="15" Height="20" Width="200" ></TextBox>
         </StackPanel>
 
+        <StackPanel Grid.Column="0" Margin="5" Grid.Row="6" Width="350" HorizontalAlignment="Left">
+            <TextBlock Text="История реализации"></TextBlock>
+            <ComboBox Name="realize" DisplayMemberPath="Datacount" SelectedValuePath="AgentID" ></ComboBox>
+            <TextBlock Text="Введите название продукта"></TextBlock>
+            <TextBox Name="searchprod" TextChanged="searchprod_TextChanged"></TextBox>
+            <ComboBox Name="Products" DisplayMemberPath="Title" SelectedValuePath="ID" ></ComboBox>
+            <TextBlock Text="Введите количество продукции"></TextBlock>
+            <TextBox Name="ProductCountTB"></TextBox>
+            <DatePicker Name="saleData"></DatePicker>
+            <Button x:Name="add" Click="add_Click" Content="Добавить реализацию"   Margin="1" />
+            <Button x:Name="delete" Click="delete_Click_1" Content="Удалить реализацию" Margin="1" />
+       </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="6" Orientation="Horizontal">
             <Button Name="save" Content="Сохранить" Grid.Column="1" Click="save_Click" Margin="5"></Button>
-            <Button Name="Delete" Content="удалить" Click="Delete_Click" Margin="5" Opacity="{Binding ID}"></Button>
+            <Button Name="Delete" Content="Удалить" Click="Delete_Click" Margin="5" Opacity="{Binding ID}"></Button>
         </StackPanel>
 
     </Grid>

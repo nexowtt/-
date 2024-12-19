@@ -25,3 +25,5 @@ D:\РПМ 3 курс\Глазки-save\Глазки-save\Исхакова_Гла
 D:\РПМ 3 курс\Глазки-save\Глазки-save\Исхакова_Глазки-save\Исхакова_Глазки-save\bin\Debug\EntityFramework.SqlServer.xml
 D:\РПМ 3 курс\Глазки-save\Глазки-save\Исхакова_Глазки-save\Исхакова_Глазки-save\bin\Debug\ru\EntityFramework.resources.dll
 D:\РПМ 3 курс\Глазки-save\Глазки-save\Исхакова_Глазки-save\Исхакова_Глазки-save\obj\Debug\Исхакова_Глазки-save.csproj.CopyComplete
+D:\РПМ 3 курс\Глазки-save\Глазки-save\Исхакова_Глазки-save\Исхакова_Глазки-save\obj\Debug\SetWindow.g.cs
+D:\РПМ 3 курс\Глазки-save\Глазки-save\Исхакова_Глазки-save\Исхакова_Глазки-save\obj\Debug\SetWindow.baml

@@ -64,9 +64,9 @@ namespace Исхакова_Глазки_save
             if (ComboSort.SelectedIndex == 2)
                 currentAgents = currentAgents.OrderByDescending(p => p.Title).ToList();
             if (ComboSort.SelectedIndex == 3)
-                currentAgents = currentAgents.OrderBy(p => p.Title).ToList();
+                currentAgents = currentAgents.OrderBy(p => p.Discount).ToList();
             if (ComboSort.SelectedIndex == 4)
-                AgentListView.ItemsSource = currentAgents.OrderByDescending(p => p.Title).ToList();
+                currentAgents = currentAgents.OrderByDescending(p => p.Discount).ToList();
             if (ComboSort.SelectedIndex == 5)
                 currentAgents = currentAgents.OrderBy(p => p.Priority).ToList();
             if (ComboSort.SelectedIndex == 6)
@@ -193,5 +193,52 @@ namespace Исхакова_Глазки_save
             UpdateAgents();
 
         }
+
+        private void editprior_Click(object sender, RoutedEventArgs e)
+        {
+            int maxPriority = 0;
+            foreach (Agent agent in AgentListView.SelectedItems)
+            {
+                if (agent.Priority > maxPriority)
+                {
+                    maxPriority = agent.Priority;
+                }
+            }
+            SetWindow setPrioty = new SetWindow(maxPriority);
+            setPrioty.ShowDialog();
+            if (setPrioty.prior.Text.Length == 0)
+            {
+                MessageBox.Show("Изменений не произошло");
+                return;
+            }
+            int num = Convert.ToInt32(setPrioty.prior.Text);
+            if (num < 0)
+                MessageBox.Show("Приотритет не может быть отрицательным");
+            else
+            {
+                foreach (Agent agent in AgentListView.SelectedItems)
+                {
+                    agent.Priority = num;
+                }
+
+                Entities.GetContext().SaveChanges();
+
+            }
+            UpdateAgents();
+        }
+
+        private void AgentListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (AgentListView.SelectedItems.Count > 1)
+            {
+                editprior.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                editprior.Visibility = Visibility.Hidden;
+            }
+            UpdateAgents();
+        }
     }
-}
+    }
+

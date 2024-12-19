@@ -19,7 +19,26 @@ namespace Исхакова_Глазки_save
         public int ProductID { get; set; }
         public System.DateTime SaleDate { get; set; }
         public int ProductCount { get; set; }
-    
+
+        public string Datacount
+        {
+            get
+            {
+                string product = Product.Title;
+                string data = Convert.ToString(SaleDate);
+                string count = Convert.ToString(ProductCount);
+                string dc =product + " " + data + " " + count;
+                return dc;
+            }
+        }
+        public decimal Cost
+        {
+            get
+            {
+                return Product.MinCostForAgent * this.ProductCount;
+            }
+        }
+
         public virtual Agent Agent { get; set; }
         public virtual Product Product { get; set; }
     }
